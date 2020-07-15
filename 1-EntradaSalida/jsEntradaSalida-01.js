@@ -3,9 +3,6 @@ Al presionar el  botón,
 se debe mostrar un mensaje como el siguiente "Esto funciona de maravilla"*/
 function mostrar()
 {
-	var dato; 
-	dato = prompt("Ingrese un dato")
-
-	alert(dato);
+	alert('Esto funciona de maravilla');
 }
 
