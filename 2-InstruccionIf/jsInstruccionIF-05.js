@@ -11,7 +11,7 @@ function mostrar()
 }
 
 
-/*dados estos tres numeros, mostrar por alert el mayor
+/*EJERCICIO EXTRA PARA ENTENDER dados estos tres numeros, mostrar por alert el mayor
 
 var numeroUno = 12;
 var numeroDos = 2;

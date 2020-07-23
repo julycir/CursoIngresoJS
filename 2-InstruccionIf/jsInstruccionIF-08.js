@@ -4,11 +4,14 @@ pero si no es asi, y es soltero y no es menor, mostrar el siguiente mensaje: 'Es
 function mostrar()
 {
 	var edadIngresada;
-	edadIngresada = txtIdEdad.value;
 	var estadoCivilIngresado;
+
+	edadIngresada = txtIdEdad.value;
 	estadoCivilIngresado = estadoCivil.value;
 
 	if (edadIngresada>=18 && estadoCivilIngresado=="Soltero") {
 		alert('Es soltero y no es menor.');
 	}
 }
+
+

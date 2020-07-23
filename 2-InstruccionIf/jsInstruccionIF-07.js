@@ -17,3 +17,18 @@ function mostrar()
     at HTMLAnchorElement.onclick (InstruccionIF-07.html:45)
 
     HABIA PUESTO SOLTERO SIN LAS COMILLAS*/
+
+//MEJOR ASI
+
+function mostrar()
+{
+	var edadIngresada;
+	var estadoCivilIngresado;
+
+	edadIngresada = txtIdEdad.value;
+	estadoCivilIngresado = estadoCivil.value;
+
+	if (edadIngresada<18 && estadoCivilIngresado!="Soltero") {
+		alert('Es muy pequeño para NO ser soltero.');
+	}
+}
