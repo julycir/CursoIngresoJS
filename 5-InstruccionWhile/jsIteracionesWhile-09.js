@@ -4,18 +4,21 @@ mostrar el número máximo y el número mínimo ingresado.*/
 function mostrar()
 {	// declarar variables
 	var banderaDelPrimero;
-	var numeroIngresado;
-	var numeroMaximo;
-	var numeroMinimo;
+	var numero;
+	var maximo;
+	var minimo;
 	var respuesta;
 	//iniciar variables
 	banderaDelPrimero="es el primero";
-	respuesta='si';
-	while(respuesta=="si")
+	respuesta = true;
+
+	while(respuesta)
 	{
 		
-		respuesta=prompt("desea continuar?");
+		respuesta=prompt("Desea continuar?");
 	}
+
 	txtIdMaximo.value=numeroMaximo;
-	txtIdMinimmo.value=numeroMinimo;
-}//FIN DE LA FUNCIÓN
+	txtIdMinimo.value=numeroMinimo;
+
+}/
