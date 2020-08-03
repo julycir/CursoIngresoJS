@@ -9,9 +9,11 @@ function mostrar()
 	numeroIngresado = prompt("ingrese un número entre 0 y 10.");
 
 	var numeroValidado;
-	numeroValidado = txtIdNumero.value;
 
-	while (numeroIngresado >= 0 && numeroIngresado <= 9) {
-		numeroValidado = numeroIngresado;
+	while (!(numeroIngresado >= 0 && numeroIngresado <= 9)) {
+		numeroIngresado = prompt("error, por favor ingrese un número entre 0 y 10.");
 	}	
+	numeroValidado = numeroIngresado;
+	txtIdNumero.value = numeroValidado;
+	console.log(numeroValidado);
 }

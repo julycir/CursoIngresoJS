@@ -4,11 +4,13 @@ Al presionar el botón pedir un sexo
 function mostrar()
 {
 	var sexoIngresado;
-	sexoIngresado = prompt("ingrese f ó m .");
+	sexoIngresado = prompt("ingrese su sexo: f si es femenino o m si es masculino.");
+	sexoIngresado = sexoIngresado.toLocaleUpperCase();
 
-	while (!(sexoIngresado === "f" || sexoIngresado === "m")) {
-		sexoIngresado = prompt("ingrese f ó m .");
+	while (!(sexoIngresado === "F" || sexoIngresado === "M")) {
+		sexoIngresado = prompt("error, por favor ingrese su sexo: f si es femenino o m si es masculino.");
 	}
 
-	txtIdSexo.value=sexoIngresado;
+	txtIdSexo.value = sexoIngresado;
+	console.log(sexoIngresado);
 }

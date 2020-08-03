@@ -9,9 +9,6 @@ function mostrar()
 	clave = "utn750";
 
 	while (claveIngresada != clave) {
-		claveIngresada = prompt("ingrese el número clave.");
-		if(claveIngresada>3) {
-			break;
-		}
+		claveIngresada = prompt("error, ingrese el número clave.");
 	}
 }
