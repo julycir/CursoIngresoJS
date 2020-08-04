@@ -1,7 +1,14 @@
+/*CIRAOLO JULIETA 
+EJERCICIO 4
+al presionar el botón repetir hasta que utilizamos 'BREAK'.*/
+
 function mostrar()
 {
-	alert("ok");
-
-
-
-}//FIN DE LA FUNCIÓN
+	for (let i = 0;;) {
+		i++;
+		console.log(i);
+		if (i==2) {
+			break;
+		}
+	}
+}
