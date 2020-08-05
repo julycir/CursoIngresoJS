@@ -8,7 +8,7 @@ function mostrar()
 	var repeticiones = prompt("ingrese el número de repeticiones");
 	repeticiones = parseInt(repeticiones);
 
-	while(isNaN(repeticiones)) {
+	while(isNaN(repeticiones) || repeticiones < 0) {
 		var repeticiones = prompt("error, por favor ingrese el número de repeticiones");
 		repeticiones = parseInt(repeticiones);
 	}
