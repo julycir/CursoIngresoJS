@@ -1,58 +1,43 @@
-/*
+/*CIRAOLO JULIETA
+ejercicio 9 while
+
 Al presionar el botón pedir  números  hasta que el usuario quiera,
 mostrar el número máximo y el número mínimo ingresado.*/
+
 function mostrar()
 {	// declarar variables
 	var banderaDelPrimero;
-	var numero;
-	var maximo;
-	var minimo;
+	var numeroIngresado;
+	var numeroMaximo;
+	var numeroMinimo;
 	var respuesta;
 	//iniciar variables
-	banderaDelPrimero="es el primero";
+	banderaDelPrimero = true ;
 	respuesta = true;
 
-	while(respuesta)
-	{
-		
-		respuesta=prompt("Desea continuar?");
-	}
+	while(respuesta) {
 
-		var contador;
-	var respuesta;
-	var sumaPositivos;
-	var multiplicacionNegativos;
+		do {
+			numeroIngresado = parseInt(prompt("Ingrese un numero."));
+		} while(isNaN(numeroIngresado));
 
-	contador = 0;
-	sumaPositivos = 0;
-	multiplicacionNegativos = 1;
-	respuesta = 'si';
+		if (banderaDelPrimero) { // bandera para ver cuando ingresa por primera vez
+		banderaDelPrimero = false;
+		numeroMaximo = numeroIngresado;
+		numeroMinimo = numeroIngresado;
+		} 
 
-	numeroIngresado = prompt("Ingrese un numero.");
-	numeroIngresado = parseInt(numeroIngresado); 
-	respuesta = prompt("Desea continuar?");
-
-	while (respuesta === "si") { 
-
-		numeroIngresado = prompt("Ingrese un numero.");
-		numeroIngresado = parseInt(numeroIngresado); 
-
-		while(isNaN(numeroIngresado)) {
-			numeroIngresado = prompt("Error, por favor ingrese un numero.");
-			numeroIngresado = parseInt(numeroIngresado);
+		if (numeroIngresado < numeroMinimo) {
+		numeroMinimo = numeroIngresado;
 		}
 
-		if (numeroIngresado >= 0) {
-			sumaPositivos = sumaPositivos + numeroIngresado;
-		} else { 
-			multiplicacionNegativos = multiplicacionNegativos * numeroIngresado;
+		if (numeroIngresado > numeroMaximo) {
+			numeroMaximo = numeroIngresado;
 		}
 		
-		respuesta = prompt("Desea continuar?");
+		respuesta = confirm("Desea continuar?");
 	}
 
-
-	txtIdMaximo.value=numeroMaximo;
-	txtIdMinimo.value=numeroMinimo;
-
+	txtIdMaximo.value = numeroMaximo;
+	txtIdMinimo.value = numeroMinimo;
 }

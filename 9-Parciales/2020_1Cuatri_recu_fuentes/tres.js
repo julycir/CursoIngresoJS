@@ -24,62 +24,67 @@ function mostrar()
 	var cantidadViudos;
 	var cantidadCasados;
 	var temperaturaCorporal;
+	respuesta = true
 	cantidadMujeres = 0;
 	cantidadHombres = 0;
 	cantidadSolteros = 0;
 	cantidadViudos = 0;
 	cantidadCasados = 0;
 
-	nombre = prompt("Ingrese su nombre.");
-	nacionalidad = prompt("Ingrese su nacionalidad");
+	do {
+		nombre = prompt("Ingrese su nombre.");
+		nacionalidad = prompt("Ingrese su nacionalidad");
 
-	edad = prompt("Ingrese su edad");
-	edad = parseInt(edad);
+		edad = prompt("Ingrese su edad");
+		edad = parseInt(edad);
 
-	//validando ingreso de edad
-	while(isNaN(edad) || edad < 0 || edad > 120) {
-			edad = prompt("por favor, ingrese una edad valida");
+		//validando ingreso de edad
+		while(isNaN(edad) || edad < 0 || edad > 120) {
+				edad = prompt("por favor, ingrese una edad valida");
+			}
+
+		sexo = prompt("Ingrese su sexo: femenino o masculino");
+		//validando que ingrese solo femenino o masculino
+		while (sexo != "femenino" || sexo != "masculino") {
+			sexo = prompt("Por favor, ingrese su sexo: femenino o masculino");
+		}
+	
+		//contando numero mujeres y hombres
+		switch (sexo) { 
+			case "femenino":
+				cantidadMujeres = cantidadMujeres + 1;
+				break
+			case "masculino":
+				cantidadHombres = cantidadHombres +1;
+				break
 		}
 
-	sexo = prompt("Ingrese su sexo: femenino o masculino");
-	//validando que ingrese solo femenino o masculino
-	while (sexo != "femenino" || sexo != "masculino") {
-		sexo = prompt("Por favor, ingrese su sexo: femenino o masculino");
-	}
-	
-	//contando numero mujeres y hombres
-	switch (sexo) { 
-		case "femenino":
-			cantidadMujeres = cantidadMujeres + 1;
-			break
-		case "masculino":
-			cantidadHombres = cantidadHombres +1;
-			break
-	}
+		estadoCivil = prompt("Ingrese su estado civil");
+		//validando que ingrese estado civil valido
+		while (!(estadoCivil = "soltero" || estadoCivil = "casado" || estadoCivil = "viudo")) {
+			estadoCivil = prompt("Ingrese un estado civil valido")
+		}
 
-	estadoCivil = prompt("Ingrese su estado civil");
-	//validando que ingrese estado civil valido
-	while (!(estadoCivil = "soltero" || estadoCivil = "casado" || estadoCivil = "viudo")) {
-		estadoCivil = prompt("Ingrese un estado civil valido")
-	}
+		//contando segun estado civil
+		switch (estadoCivil) {
+			case "soltero":
+				cantidadSolteros = cantidadSolteros + 1;
+				break;
+			case "casado":
+				cantidadCasados = cantidadCasados + 1;
+				break;
+			case "viudo":
+				cantidadViudos = cantidadViudos + 1;
+				break;
+		}
 
-	//contando segun estado civil
-	switch (estadoCivil) {
-		case "soltero":
-			cantidadSolteros = cantidadSolteros + 1;
-			break;
-		case "casado":
-			cantidadCasados = cantidadCasados + 1;
-			break;
-		case "viudo":
-			cantidadViudos = cantidadViudos + 1;
-			break;
-	}
+		temperaturaCorporal = prompt("Ingrese su temperatura corporal");
+		temperaturaCorporal = parseInt(temperaturaCorporal);
+		while(isNaN(temperaturaCorporal) || temperaturaCorporal < 35 || temperaturaCorporal > 41) {
+			temperaturaCorporal = prompt("por favor, ingrese una temperatura corporal valida, entre 36 y 40");
+		}
 
-	temperaturaCorporal = prompt("Ingrese su temperatura corporal");
-	temperaturaCorporal = parseInt(temperaturaCorporal);
-	while(isNaN(temperaturaCorporal) || temperaturaCorporal < 35 || temperaturaCorporal > 41) {
-		temperaturaCorporal = prompt("por favor, ingrese una temperatura corporal valida, entre 36 y 40");
-	}
+		respuesta = confirm("Desea continuar?");
 
+		} while (respuesta);
 }
