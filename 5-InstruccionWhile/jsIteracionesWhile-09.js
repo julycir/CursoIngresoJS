@@ -12,29 +12,27 @@ function mostrar()
 	var numeroMinimo;
 	var respuesta;
 	//iniciar variables
-	banderaDelPrimero = true ;
+	banderaDelPrimero = true;
 	respuesta = true;
 
-	while(respuesta) {
+	while (respuesta) {
 
 		do {
 			numeroIngresado = parseInt(prompt("Ingrese un numero."));
 		} while(isNaN(numeroIngresado));
 
 		if (banderaDelPrimero) { // bandera para ver cuando ingresa por primera vez
-		banderaDelPrimero = false;
+		banderaDelPrimero = false; // no entra mas a este if, va directo al else
 		numeroMaximo = numeroIngresado;
 		numeroMinimo = numeroIngresado;
-		} 
-
-		if (numeroIngresado < numeroMinimo) {
-		numeroMinimo = numeroIngresado;
+		} else {
+			if (numeroIngresado < numeroMinimo) {
+				numeroMinimo = numeroIngresado;
+			}
+			if (numeroIngresado > numeroMaximo) {
+				numeroMaximo = numeroIngresado;
+			}
 		}
-
-		if (numeroIngresado > numeroMaximo) {
-			numeroMaximo = numeroIngresado;
-		}
-		
 		respuesta = confirm("Desea continuar?");
 	}
 

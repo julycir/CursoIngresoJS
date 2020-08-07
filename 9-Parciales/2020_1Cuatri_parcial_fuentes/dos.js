@@ -20,6 +20,9 @@ function mostrar()
 	var respuesta;
 	respuesta = true;
 	var productoIngresado;
+	var cantidadArena;
+	var cantidadCal;
+	var cantidadCemento;
 	var cantidadBolsas;
 	var precioBolsas;
 	var subTotal;
@@ -31,22 +34,28 @@ function mostrar()
 	do { // ingreso de productos por cliente
 
 		//validar tipo producto
-		productoIngresado = prompt("Ingrese el producto para la construccion que desea");
-		while(productoIngresado == "arena" && productoIngresado == "cal" && productoIngresado == "cemento") {
-			productoIngresado = prompt("Por favor, ingrese el producto correcto");
-		}
+		do {
+			productoIngresado = prompt("Ingrese el producto para la construccion que desea");
+		 	if (productoIngresado == "arena" && productoIngresado == "cal" && productoIngresado == "cemento") {
+		 		productoIngresado = prompt("Por favor, ingrese el producto correcto");
+		 	}
+		} while (productoIngresado == "arena" && productoIngresado == "cal" && productoIngresado == "cemento");
 
 		//validando ingreso de numero y que sea > 0
-		cantidadBolsas = parseInt(prompt("Ingrese la cantidad de bolsas que desea"));
-		while(isNaN(cantidadBolsas) || cantidadBolsas < 0) { 
+		do {
+			cantidadBolsas = parseInt(prompt("Ingrese la cantidad de bolsas que desea"));
+			if (isNaN(cantidadBolsas) || cantidadBolsas < 0) { 
 			cantidadBolsas = parseInt(prompt("Por favor, ingrese la cantidad correcta de bolsas que desea"));
-		}
-
+			}
+		} while (isNaN(cantidadBolsas) || cantidadBolsas < 0)
+		
 		//validando ingreso de numero y que sea > 0
-		precioBolsas = parseInt(prompt("Ingrese el precio"));
-		while(isNaN(precioBolsas) || precioBolsas <= 0) { 
+		do {
+			precioBolsas = parseInt(prompt("Ingrese el precio"));
+			if (isNaN(precioBolsas) || precioBolsas <= 0) { 
 			precioBolsas = prompt("Por favor, ingrese un precio valido");
-		}
+			}
+		} while (isNaN(precioBolsas) || precioBolsas <= 0);
 
 		respuesta = confirm("Desea continuar?");
 
@@ -66,6 +75,10 @@ function mostrar()
 	}
 
 	importeTotal = subTotal;
+
+	if (cantidadCemento > cantidadCal && cantidadCemento > cantidadArena) {
+		cantidadCemento
+	}
 
 	alert("El importe total a pagar, bruto sin descuento es " + subTotal + " y el importe total a pagar con descuento (solo si correspondiera descuento por cantidad) es " + importeTotal + ". El tipo de material mas comprado fue .... y el tipo de material mas comprado fue...")
 }

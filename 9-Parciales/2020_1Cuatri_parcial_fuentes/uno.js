@@ -106,6 +106,9 @@ function mostrar()
 
 	} while (cantidadProductos < 5);
 
+	//a) Del más barato de los alcohol, la cantidad de unidades y el fabricante
+
+
 	//b) Del tipo con mas unidades, el promedio por compra
 	if (cantidadJabones > cantidadAlcohol && cantidadJabones > cantidadBarbijos) {
 		productoMasComprado = "jabon";
@@ -115,15 +118,11 @@ function mostrar()
 			productoMasComprado = "barbijos";
 		}
 	}
+
+	//c) Cuántas unidades de jabones hay en total*/
 	
 /*
-	document.write("Del más barato de los alcoholes, se compraron " + cantidadAlcoholes + " cantidad de unidades y el fabricante fue " + fabricanteProducto + ", el producto más comprado según cantidad de unidades fue " + " y el promedio por compra fue: " + ". Se compraron " + cantidadJabones + " jabones en total.");*/
-	
+	document.write("Del más barato de los alcoholes, se compraron " + cantidadAlcoholes + " cantidad de unidades y el fabricante fue " + fabricanteProducto + ", el producto más comprado según cantidad de unidades fue " + " y el promedio por compra fue: " + ". Se compraron " + cantidadJabones + " jabones en total.");*/	
 }
 
-/*
-
-*a) Del más barato de los alcohol, la cantidad de unidades y el fabricante
-b) Del tipo con mas unidades, el promedio por compra
-c) Cuántas unidades de jabones hay en total*/
 

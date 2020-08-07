@@ -1,5 +1,5 @@
 /*CIRAOLO JULIETA
-Ejercicio 10
+Ejercicio 10 while
 
 Al presionar el botón pedir números  
 hasta que el usuario quiera, mostrar:
@@ -11,21 +11,23 @@ hasta que el usuario quiera, mostrar:
 6-Cantidad de números pares.
 7-Promedio de positivos.
 8-Promedios de negativos.
-9-Diferencia entre positivos y negativos, (positvos-negativos). */
+9-Diferencia entre positivos y negativos, (positvos-negativos). 
+
+Mostrar con document.write*/
 
 function mostrar()
 {
-	var respuesta;
-	var numeroIngresado;
-	var sumaNegativos;
-	var sumaPositivos;
-	var cantidadPositivos;
-	var cantidadNegativos;
-	var cantidadCeros;
-	var cantidadPares;
-	var promedioPositivos;
-	var promedioNegativos;
-	var diferencia;
+	var respuesta; //cuando el usuario modifique la respuesta, se termine el bucle
+	var numeroIngresado; //lo que el usuario ingresa
+	var sumaNegativos; //1
+	var sumaPositivos; //2
+	var cantidadPositivos; //3
+	var cantidadNegativos; //4
+	var cantidadCeros; //5
+	var cantidadPares; //6
+	var promedioPositivos; //7
+	var promedioNegativos; //8
+	var diferencia; //9
 
 	respuesta = "si";
 	sumaNegativos = 0;
@@ -34,8 +36,8 @@ function mostrar()
 	cantidadNegativos = 0;
 	cantidadCeros = 0;
 	cantidadPares = 0;
-	promedioPositivos = "no se han ingresado numeros positivos.";
-	promedioNegativos = "no se han ingresado numeros negativos.";
+	promedioPositivos = "no se han ingresado numeros positivos";
+	promedioNegativos = "no se han ingresado numeros negativos";
 
 	do { //se ejecuta al menos una sola vez
 		do {
@@ -44,26 +46,30 @@ function mostrar()
 
 			if (numeroIngresado < 0) {
 				sumaNegativos = sumaNegativos + numeroIngresado;
-				cantidadNegativos++;
+				cantidadNegativos++; //si el numero es positivo, lo sumamos y contamos
 			} else if (numeroIngresado > 0) {
 				sumaPositivos = sumaPositivos + numeroIngresado;
-				cantidadPositivos++;
+				cantidadPositivos++; //si el numero es negativo, lo sumamos y contamos
 			} else {
-				cantidadCeros++;
+				cantidadCeros++; //si el numero es cero, lo sumamos y contamos
 			}
 
 			if (numeroIngresado % 2 == 0) {
-				cantidadPares++;
+				cantidadPares++; //si el numero es par, lo contamos
 			}
 
-		} while(isNaN(numeroIngresado));
+		} while(isNaN(numeroIngresado)); //validando que el usuario ingrese un numero
 
-		respuesta = prompt("desea continuar? si o no");
+		respuesta = prompt("desea continuar? si o no"); 
+		if (isNaN(respuesta)) {
+			respuesta = prompt("por favor, ingrese si o no"); //validando que ingrese SI o NO
+		}
 
 	} while (respuesta != "no"); // hasta que el usuario responda NO
 
 	if (cantidadPositivos != 0) {
 		promedioPositivos = sumaPositivos / cantidadPositivos;
+		promedioPositivos = promedioPositivos.toFixed(0);
 	}
 
 	if (cantidadNegativos != 0) {
