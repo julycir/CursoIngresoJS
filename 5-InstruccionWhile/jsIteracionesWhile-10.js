@@ -74,6 +74,7 @@ function mostrar()
 
 	if (cantidadNegativos != 0) {
 		promedioNegativos = sumaNegativos / cantidadNegativos;
+		promedioNegativos = promedioNegativos.toFixed(0);
 	}
 
 	diferencia = sumaPositivos - sumaNegativos;

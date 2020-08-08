@@ -1,6 +1,5 @@
 /*CIRAOLO Julieta
-Parcial 2018 - Ejercicio 
-
+Parcial 2018 - Ejercicio 7
 Enunciado:
 Bienvenidos.
 Realizar el algoritmo que permita el ingreso por prompt de las notas (validar entre 0 y 10) , el sexo (validar el sexo “f” o “m”) de 5 alumnos, informar por alert:
