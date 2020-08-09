@@ -15,11 +15,14 @@ function mostrar()
 	var promedioPeso;
 
 	nombreUno = prompt("Ingrese el nombre del integrante 1 de la pareja");
+
 	pesoUno = parseInt(prompt("Integrante 1: ingrese su peso en kilogramos"));
 	while(pesoUno < 25) {
 		pesoUno = parseInt(prompt("Integrante 1: por favor, ingrese su peso en kilogramos"));
 	}
+
 	nombreDos = prompt("Ingrese el nombre del integrante 2 de la pareja");
+	
 	pesoDos = parseInt(prompt("Integrante 2: ingrese su peso en kilogramos"));
 	while(pesoDos < 25) {
 		pesoDos = parseInt(prompt("Integrante 2: por favor, ingrese su peso en kilogramos"));

@@ -27,22 +27,22 @@ function mostrar()
 	cantidadCarne = 0;
 	totalCarne = 0;
 
-	for (let cantAlimento = 0; cantAlimento < 10; cantAlimento++) {
+	for (let cantAlimento = 0; cantAlimento < 2; cantAlimento++) {
 
 		do {
 			sabor = prompt("Ingrese el sabor del alimento: carne, vegetales o pollo");
 
-			while (sabor != "carne" || sabor != "vegetales" || sabor != "pollo") {
+			while (sabor != "carne" && sabor != "vegetales" && sabor != "pollo") {
 				sabor = prompt("Por favor, ingrese el sabor del alimento: carne, vegetales o pollo");
 			}
 
-		} while (sabor != "carne" || sabor != "vegetales" || sabor != "pollo");
+		} while (sabor != "carne" && sabor != "vegetales" && sabor != "pollo");
 
 		do {
 			kilos = parseInt(prompt("Ingrese los kilos que pesa la bolsa."));
 
 			while (isNaN(kilos) || kilos < 0 || kilos > 500) {
-				kilos = parseInt(prompt("Por favor, ingrese los kilos que pesa la bolsa."));
+				kilos = parseInt(prompt("Por favor, ingrese los kilos que pesa la bolsa (hasta 500)"));
 			}	
 			kilosTotales += kilos;
 
@@ -64,8 +64,13 @@ function mostrar()
 
 	promedioKilos = kilosTotales / cantAlimento;
 
-	alert(promedioKilos + alimentoMasLiviano + cantidadCarne + promedioKilosCarne);
+	if (cantidadCarne == 0) {
+		cantidadCarne = "No se ha comprado carne";
+		promedioKilosCarne = "No se ha comprado carne";
 
-	
+	}
 
+	alert("a) El promedio de los kilos totales es: " + promedioKilos + ".<br />b) El alimento mas liviano y su sabor es: " + saborAlimentoMasLiviano + ".<br />c) La cantidad de sabor carne es: " + cantidadCarne + " y el promedio de kilos de sabor carne es: " + promedioKilosCarne + ".");	
 }
+
+

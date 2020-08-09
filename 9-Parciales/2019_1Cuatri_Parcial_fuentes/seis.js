@@ -48,10 +48,13 @@ function mostrar()
 		case 3:
 		case 4:
 		case 5:
-			alert("Es de noche, es hora de ir a dormir.");
+			alert("Es de noche.");
 			break;
 		default:
 			alert("La hora ingresada no es valida.");
 			break;
 	}
+	if (horaIngresada < 24 || horaIngresada < 6) {
+		alert("A dormir!");
+		}
 }

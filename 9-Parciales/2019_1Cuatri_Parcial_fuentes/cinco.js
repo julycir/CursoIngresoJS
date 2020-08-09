@@ -18,7 +18,7 @@ function mostrar()
 	var precioTotal;
 	precioPorDia = 100;
 
-	continente = prompt("Que continente desea visitar?");
+	continente = Marca.value;
 	cantidadDias = parseInt(prompt("Cuantos dias va a durar su viaje?"));
 	precioTotal = precioPorDia * cantidadDias;
 	
@@ -52,5 +52,5 @@ function mostrar()
 			precioTotal = precioTotal * 1.20; 
 	}
 
-	console.log(precioTotal);
+	alert("El valor de su viaje es $" + precioTotal + ".");
 }

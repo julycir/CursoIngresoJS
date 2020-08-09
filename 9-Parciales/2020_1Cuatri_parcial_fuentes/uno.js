@@ -50,7 +50,7 @@ function mostrar()
 		do { //2. VALIDANDO PRECIO
 			precioProducto = parseInt(prompt("Ingrese el precio del producto (entre 100 y 300)"));
 
-			if (precioProducto < 100 || precioProducto > 300) {
+			if (isNaN(precioProducto) || precioProducto < 100 || precioProducto > 300) {
 				precioProducto = prompt("Por favor, ingrese un precio valido entre 100 y 300");
 			}
 	
@@ -103,7 +103,6 @@ function mostrar()
 
 		cantidadProductos++;	
 
-
 	} while (cantidadProductos < 5);
 
 	//a) Del más barato de los alcohol, la cantidad de unidades y el fabricante
@@ -120,9 +119,12 @@ function mostrar()
 	}
 
 	//c) Cuántas unidades de jabones hay en total*/
-	
-/*
-	document.write("Del más barato de los alcoholes, se compraron " + cantidadAlcoholes + " cantidad de unidades y el fabricante fue " + fabricanteProducto + ", el producto más comprado según cantidad de unidades fue " + " y el promedio por compra fue: " + ". Se compraron " + cantidadJabones + " jabones en total.");*/	
+
+	document.write("Del más barato de los alcoholes, se compraron " + cantidadAlcoholes + " cantidad de unidades y el fabricante fue " + fabricanteProducto + ", el producto más comprado según cantidad de unidades fue " + productoMasComprado + " y el promedio por compra fue: " promedioCompra + ". Se compraron " + cantidadJabones + " jabones en total.");
+
 }
 
 
+	
+
+	
