@@ -16,111 +16,117 @@ c) Cuántas unidades de jabones hay en total*/
 function mostrar()
 {
 	var tipoProducto;
-	var cantidadProductoIndividual;
-	var cantidadProductos;
-	var cantidadBarbijos;
-	var cantidadJabones;
-	var cantidadAlcohol;
 	var precioProducto;
-	var precioBarbijo;
-	var precioJabon;
-	var precioAlcohol;
+	var cantidadProducto;
 	var marcaProducto;
 	var fabricanteProducto;
+
+	var banderaAlcoholMasBarato;
+	var precioAlcoholMasBarato;
+	var cantidadAlcoholMasBarato;
+	var fabricanteAlcoholMasBarato;
+
 	var productoMasComprado;
+	var cantidadProductoMasComprado;
+	var acumuladoProductoMasComprado;
+	var promedioProductoMasComprado;
 
+	var cantidadBarbijos;
+	var cantidadAlcohol;
+	var cantidadJabones;
 
-	cantidadProductoIndividual = 0;
-	cantidadProductos = 0;
+	cantidadProducto = 0;
+	banderaAlcoholMasBarato = true;
+	cantidadProductoMasComprado = 0;
+	acumuladoProductoMasComprado = 0;
 	cantidadBarbijos = 0;
-	cantidadJabones = 0;
 	cantidadAlcohol = 0;
-
+	cantidadJabones = 0;
 
 	do {//pidiendo un producto
 		do { //1. VALIDANDO TIPO DE PRODUCTO
 			tipoProducto = prompt("Que tipo de producto desea: barbijo, jabon o alcohol?");
-
-			if (tipoProducto != "barbijo" && tipoProducto != "jabon" && tipoProducto != "alcohol") {
-				tipoProducto = prompt("Error, que tipo de producto es: barbijo, jabon o alcohol?");
+			while (tipoProducto != "barbijo" && tipoProducto != "jabon" && tipoProducto != "alcohol") {
+				tipoProducto = prompt("Error, que tipo de producto desea: barbijo, jabon o alcohol?");
 			}
-
 		} while (tipoProducto != "barbijo" && tipoProducto != "jabon" && tipoProducto != "alcohol");
 
 		do { //2. VALIDANDO PRECIO
 			precioProducto = parseInt(prompt("Ingrese el precio del producto (entre 100 y 300)"));
-
-			if (isNaN(precioProducto) || precioProducto < 100 || precioProducto > 300) {
-				precioProducto = prompt("Por favor, ingrese un precio valido entre 100 y 300");
+			while (isNaN(precioProducto) || precioProducto < 100 || precioProducto > 300) {
+				precioProducto = parseInt(prompt("Por favor, ingrese un precio valido entre 100 y 300"));
 			}
-	
 		} while (isNaN(precioProducto) || precioProducto < 100 || precioProducto > 300);
 
 		do { //3. VALIDANDO CANTIDAD
-
-			cantidadProductoIndividual = parseInt(prompt("Cuantos desea agregar?"));	
-
-			switch (tipoProducto) {
-				case "barbijo":
-					cantidadBarbijos++;
-					break;
-				case "jabon":
-					cantidadJabones++;
-					break;
-				case "alcohol":
-					cantidadAlcohol++;
-					break;
+			cantidadProducto = parseInt(prompt("Cuantos desea agregar?"));	
+			while (isNaN(cantidadProductoIndividual) || cantidadProductoIndividual < 0 || cantidadProductoIndividual > 1000) {
+				cantidadProductoIndividual = parseInt(prompt("Por favor, ingrese una cantidad correcta de 1 a 999, cuantos desea agregar?"));
 			}
-
-			if (cantidadProductoIndividual < 0 || cantidadProductoIndividual > 1000) {
-				cantidadProductoIndividual = prompt("Esa cantidad es incorrecta. De 1 a 999, cuantos desea agregar?");
-			}
-
-			if (isNaN(cantidadProductoIndividual)) {
-				cantidadProductoIndividual = prompt("Por favor, ingrese un numero, cuantos desea agregar?");
-			}
-
-
 		} while (isNaN(cantidadProductoIndividual) || cantidadProductoIndividual < 0 || cantidadProductoIndividual > 1000);
 
 		do { //4. ingresa marca
 			marcaProducto = prompt("Ingrese la marca del producto");
-
-			if (!(isNaN(marcaProducto))) {
+			while (!(isNaN(marcaProducto))) {
 				marcaProducto = prompt("Por favor, ingrese la marca del producto");
 			}
-
 		} while (!(isNaN(marcaProducto)));
 
 		do { //5. ingresa fabricante
 			fabricanteProducto = prompt("Ingrese el fabricante del producto");
-
-			if (!(isNaN(fabricanteProducto))) {
-				fabricanteProducto = prompt("Ingrese el fabricante del producto");
+			while (!(isNaN(fabricanteProducto))) {
+				fabricanteProducto = prompt("Por favor, ingrese el fabricante del producto");
 			}
-
 		} while (!(isNaN(fabricanteProducto))); 
 
-		cantidadProductos++;	
+		switch (tipoProducto) {
+			case "barbijo":
+				cantidadBarbijos++;
+				break;
+			case "jabon":
+				cantidadJabones++;
+				break;
+			case "alcohol":
+				cantidadAlcohol++;
+				break;
+		}
 
-	} while (cantidadProductos < 5);
+		cantidadProducto++;	//modifico variable de control
+	} while (cantidadProducto < 5); 
 
-	//a) Del más barato de los alcohol, la cantidad de unidades y el fabricante
-
-
-	//b) Del tipo con mas unidades, el promedio por compra
-	if (cantidadJabones > cantidadAlcohol && cantidadJabones > cantidadBarbijos) {
-		productoMasComprado = "jabon";
-		if (cantidadAlcohol > cantidadJabones && cantidadAlcohol > cantidadBarbijos) {
-			productoMasComprado = "alcohol";
-		} if (cantidadBarbijos > cantidadJabones && cantidadBarbijos > cantidadAlcohol) {
-			productoMasComprado = "barbijos";
+	//a) Del más barato de los alcoholes, la cantidad de unidades y el fabricante
+	if (tipoProducto == "alcohol") {
+		if (banderaAlcoholMasBarato) {
+			banderaAlcoholMasBarato = false;
+			precioAlcoholMasBarato = precioProducto;
+			cantidadAlcoholMasBarato = cantidadProducto;
+			fabricanteAlcoholMasBarato = fabricanteProducto;
+		} else {
+			if (precioProducto < precioAlcoholMasBarato) {
+				precioAlcoholMasBarato = precioProducto;
+				cantidadAlcoholMasBarato = cantidadProducto;
+				fabricanteAlcoholMasBarato = fabricanteProducto;
+			}
 		}
 	}
 
+	//b) Del tipo con mas unidades, el promedio por compra ************
+	if (cantidadJabones > cantidadAlcohol && cantidadJabones > cantidadBarbijos) {
+		productoMasComprado = "jabon";
+	} else if (cantidadAlcohol > cantidadJabones && cantidadAlcohol > cantidadBarbijos) {
+		productoMasComprado = "alcohol";
+	} else {
+		productoMasComprado = "barbijos";
+	}
+
+	productoMasComprado 
+
+
+	promedioCompra = acumuladoProductoMasComprado / cantidadProductoMasComprado;
+
 	//c) Cuántas unidades de jabones hay en total*/
 
-	document.write("Del más barato de los alcoholes, se compraron " + cantidadAlcoholes + " cantidad de unidades y el fabricante fue " + fabricanteProducto + ", el producto más comprado según cantidad de unidades fue " + productoMasComprado + " y el promedio por compra fue: " promedioCompra + ". Se compraron " + cantidadJabones + " jabones en total.");
+	document.write("Del más barato de los alcoholes, se compraron " + cantidadAlcoholMasBarato + " cantidad de unidades y el fabricante fue " + fabricanteAlcoholMasBarato + ", el producto más comprado según cantidad de unidades fue " + productoMasComprado + " y el promedio por compra fue: " + promedioCompra + ". Se compraron " + cantidadJabones + " jabones en total.");
 
 }
 
