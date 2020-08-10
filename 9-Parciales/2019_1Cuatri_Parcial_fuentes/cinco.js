@@ -8,7 +8,10 @@ y la cantidad de días , la oferta dice que por día se cobra $100 , que se pued
 Si es América tiene un 50% de descuento y si ademas paga por débito se le agrega un 10% mas de descuento
 Si es África tiene un 60% de descuento y si además paga por mercadoPago o efectivo se le agrega un 15% mas de descuento
 Si es Europa tiene un 20% de descuento y si ademas paga por débito se le agrega un 15% , por mercadoPago un 10% y cualquier otro medio 5%
-cualquier otro continente tiene un recargo del 20%*/
+cualquier otro continente tiene un recargo del 20%
+
+
+FALTAN MEDIOS DE PAGOOOOOOOOOOOOOOOOOOOOO y corregir switch*/
 
 function mostrar()
 {

@@ -8,6 +8,8 @@ b) Cuantos mayores de edad estan viudos
 c) La cantidad de hombres que hay solteros o viudos.
 d) cuantas personas de la tercera edad( mas de 60 años) , tienen mas de 38 de temperatura
 e) El promedio de edad entre los hombres solteros.
+
+laly: https://www.onlinegdb.com/HJiIx-0-D
 */
 
 function mostrar()
