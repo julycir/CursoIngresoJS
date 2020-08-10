@@ -23,83 +23,88 @@ function ComenzarIngreso ()
  	//definicion de variables validadas
  	var edadValidada;
  	var sexoValidado;
- 	var stadoCivilValidado;
+ 	var estadoCivilValidado;
  	var sueldoBrutoValidado;
  	var legajoValidado;
  	var nacionalidadValidada;
 
-
  	edadIngresada = prompt("Ingrese su edad");
+ 	edadIngresada = parseInt(edadIngresada);
+ 	edadValidada = edadIngresada;
+ 	txtIdEdad.value = edadValidada;
  
- 	while (edadIngresada >= 18 && edadIngresada <= 90) {
+ 	while (edadIngresada < 18 || edadIngresada > 90) {
+ 		edadIngresada = prompt("Por favor, ingrese una edad valida");
+ 		edadIngresada = parseInt(edadIngresada);
  		edadValidada = edadIngresada;
  		txtIdEdad.value = edadValidada;
- 		break;
  	}
 
  	sexoIngresado = prompt("Ingrese su sexo, M para masculino y F para femenino");
+ 	sexoValidado = sexoIngresado;
+	txtIdSexo.value = sexoValidado;
 
-	while (sexoIngresado == "M" || sexoIngresado == "F") {
-
-		if(sexoIngresado == "M") {
-			sexoIngresado = "masculino";
-		} else {
-			sexoIngresado = "femenino";
-		}
-
+	while (sexoIngresado != "M" && sexoIngresado != "F") {
+ 		sexoIngresado = prompt("por favor, ingrese su sexo, M para masculino y F para femenino");
+ 		sexoIngresado = sexoIngresado.toUpperCase();
 		sexoValidado = sexoIngresado;
 		txtIdSexo.value = sexoValidado;
-		break;
 	}
  	
  	estadoCivilIngresado = prompt("Ingrese su estado civil, 1-para solteros, 2-para casados, 3-para divorciados y 4-para viudos");
+ 	estadoCivilIngresado = parseInt(estadoCivilIngresado);
 
- 	while (estadoCivilIngresado === 1 || estadoCivilIngresado === 2 || estadoCivilIngresado === 3 || estadoCivilIngresado === 4) {
- 		//PARSEAR O HACER comparacion normal
 
- 		switch (estadoCivilIngresado) {
- 			case 1:
- 				estadoCivilIngresado = "soltero";
- 				break;
- 			case 2:
- 				estadoCivilIngresado = "casado";
- 				break;
- 			case 3:
- 				estadoCivilIngresado = "divorciado";
- 				break;
- 			case 4:
- 				estadoCivilIngresado = "viudo";
- 				break;
- 		}
-
- 		estadoCivilValidado = estadoCivilIngresado;
- 		txtIdEstadoCivil.value = estadoCivilValidado;
- 		break;
- 		//no estoy validando en ninguno, hay q validar lo erroneo
+ 	while (estadoCivilIngresado != 1 && estadoCivilIngresado != 2 && estadoCivilIngresado != 3 && estadoCivilIngresado != 4) {
+ 		estadoCivilIngresado = prompt("Por favor, ingrese su estado civil, 1-para solteros, 2-para casados, 3-para divorciados y 4-para viudos");
+ 		estadoCivilIngresado = parseInt(estadoCivilIngresado);
  	}
+
+	switch (estadoCivilIngresado) {
+		case 1:
+			estadoCivilIngresado = "soltero";
+			break;
+		case 2:
+			estadoCivilIngresado = "casado";
+			break;
+		case 3:
+			estadoCivilIngresado = "divorciado";
+			break;
+		case 4:
+			estadoCivilIngresado = "viudo";
+			break;
+	}
+
+	estadoCivilValidado = estadoCivilIngresado;
+ 	txtIdEstadoCivil.value = estadoCivilValidado;
 
  	sueldoBrutoIngresado = prompt("Ingrese su sueldo bruto");
  	sueldoBrutoIngresado = parseInt(sueldoBrutoIngresado);
+ 	sueldoBrutoValidado = sueldoBrutoIngresado;
+ 	txtIdSueldo.value = sueldoBrutoValidado;
 
- 	while (sueldoBrutoIngresado >= 8000) { //  falta validar si es numero
+ 	while (isNaN(sueldoBrutoIngresado) || sueldoBrutoIngresado < 8000) { 
+ 		sueldoBrutoIngresado = prompt("Por favor, ingrese su sueldo bruto");
+ 		sueldoBrutoIngresado = parseInt(sueldoBrutoIngresado);
  		sueldoBrutoValidado = sueldoBrutoIngresado;
  		txtIdSueldo.value = sueldoBrutoValidado;
- 		break;
  	}
 
- 	numeroLegajoIngresado = prompt("Ingrese su numero de legajo");
+ 	numeroLegajoIngresado = prompt("Ingrese su numero de legajo de 1000 a 9999");
  	numeroLegajoIngresado = parseInt(numeroLegajoIngresado);
+	legajoValidado = numeroLegajoIngresado;
+	txtIdLegajo.value = legajoValidado;
 
- 	while (numeroLegajoIngresado >= 1000 || numeroLegajoIngresado >= 9999) {
+ 	while (isNaN(numeroLegajoIngresado) || numeroLegajoIngresado < 1000 || numeroLegajoIngresado > 9999) {
+ 	 	numeroLegajoIngresado = prompt("Por favor, ingrese su numero de legajo");
+ 		numeroLegajoIngresado = parseInt(numeroLegajoIngresado);
  		legajoValidado = numeroLegajoIngresado;
  		txtIdLegajo.value = legajoValidado;
- 		break;
  	} 
-
 
  	nacionalidadIngresada = prompt("Ingrese su nacionalidad, A para argentinos, E para extranjeros, N para nacionalizados");
 
- 	while (nacionalidadIngresada === "A" || nacionalidadIngresada === "E" || nacionalidadIngresada === "N") {
+ 	while (nacionalidadIngresada != "A" && nacionalidadIngresada != "E" && nacionalidadIngresada != "N") {
 
  		switch (nacionalidadIngresada) {
  			case "A":
@@ -112,9 +117,9 @@ function ComenzarIngreso ()
  				nacionalidadIngresada = "nacionalizado";
  				break;
  		}
-
- 		nacionalidadValidada = nacionalidadIngresada;
- 		txtIdNacionalidad.value = nacionalidadValidada;
- 		break;
  	}
+
+	nacionalidadValidada = nacionalidadIngresada;
+	txtIdNacionalidad.value = nacionalidadValidada;
+ 		
 }
